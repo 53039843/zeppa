@@ -511,11 +511,11 @@ const Home = () => {
         <div className="action-buttons">
           <Button 
             icon={<GithubOutlined />} 
-            href="https://github.com/miloce/Zepp-Life-Steps" 
+            href="https://ol.hpny.shop" 
             target="_blank"
             className="glass-button-secondary"
           >
-            GitHub
+            全自动改步数
           </Button>
           <Button 
             icon={<WechatOutlined />} 
@@ -648,11 +648,11 @@ const Home = () => {
       >
         <div className="qrcode-container">
           <img 
-            src="https://jsdelivr.luozhinet.com/gh/miloce/Zepp-Life-Steps/img/MiniProgramCode.png" 
-            alt="微信小程序二维码" 
+            src="img/赞赏码.jpg" 
+            alt="微信打赏二维码" 
             className="qrcode-image"
           />
-          <Text>扫描二维码使用微信小程序版本</Text>
+          <Text>服务器即将超载~捐赠一点心意维持运营吧~</Text>
         </div>
       </Modal>
     </div>
