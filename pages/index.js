@@ -279,7 +279,7 @@ const Home = () => {
             className="header-button"
           />
         </Tooltip>
-        <Tooltip title="微信小程序">
+        <Tooltip title="微信赞赏码">
           <Button 
             type="text" 
             icon={<QrcodeOutlined />} 
@@ -522,7 +522,7 @@ const Home = () => {
             onClick={() => setShowQRCode(true)}
             className="glass-button-secondary"
           >
-            微信小程序
+            微信赞赏一下
           </Button>
         </div>
         
