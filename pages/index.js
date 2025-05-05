@@ -635,7 +635,7 @@ const Home = () => {
       </Modal>
 
       <Modal
-        title="微信小程序"
+        title="赞赏一下"
         open={showQRCode}
         onCancel={() => setShowQRCode(false)}
         footer={[
