@@ -315,7 +315,7 @@ const Home = () => {
                     >
                       <Input 
                         prefix={<UserOutlined />} 
-                        placeholder="请输入手机号或邮箱" 
+                        placeholder="请输入Zepp的邮箱或手机号" 
                         className="glass-input"
                       />
                     </Form.Item>
