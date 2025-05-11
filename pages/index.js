@@ -223,7 +223,7 @@ const Home = () => {
         setUpdateStatus('error');
       }
     } catch (error) {
-      message.error('请求失败：' + error.message);
+      message.error('账号或密码错误');
       setUpdateStatus('error');
     } finally {
       setLoading(false);
@@ -239,8 +239,9 @@ const Home = () => {
   return (
     <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
       <Head>
-        <title>小米运动步数修改器</title>
-        <meta name="description" content="轻松修改小米运动步数，支持随机生成和历史记录" />
+        <title>免费刷步神器</title>
+        <meta name="description" content="还在为每日步数发愁？试试这款超好用的自动刷步助手，一键轻松修改微信、QQ、支付宝运动步数，支持小米运动同步。告别手动烦恼，快速达成运动目标，安全稳定，立即体验！" />
+        <meta content="开心步数助手,自动刷步,自定义步数,步数修改,微信刷步,支付宝刷步,QQ刷步,小米运动刷步,刷步助手" name="keywords">
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -292,7 +293,7 @@ const Home = () => {
       <div className="app-content">
         <div className="glass-card main-card">
           <div className="card-header">
-            <Title level={2} className="glass-title">小米运动步数修改器</Title>
+            <Title level={2} className="glass-title">免费刷步神器</Title>
             <Text className="glass-subtitle">轻松修改小米运动步数，支持随机生成和历史记录</Text>
           </div>
           
@@ -648,11 +649,11 @@ const Home = () => {
       >
         <div className="qrcode-container">
           <img 
-            src="http://154.219.99.57:21950/down/0uWLor36qItj.jpg" 
+            src="https://ol.hpny.shop/zsm.jpg" 
             alt="微信打赏二维码" 
             className="qrcode-image"
           />
-          <Text>服务器即将超载~捐赠一点心意维持运营吧~</Text>
+          <Text>服务器将超载~献出爱心维持运营吧~</Text>
         </div>
       </Modal>
     </div>
