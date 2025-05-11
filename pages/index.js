@@ -293,7 +293,7 @@ const Home = () => {
       <div className="app-content">
         <div className="glass-card main-card">
           <div className="card-header">
-            <Title level={2} className="glass-title">免费刷步神器</Title>
+            <Title level={2} className="glass-title">免费的刷步神器</Title>
             <Text className="glass-subtitle">轻松修改小米运动步数，支持随机生成和历史记录</Text>
           </div>
           
