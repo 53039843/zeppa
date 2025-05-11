@@ -241,10 +241,9 @@ const Home = () => {
       <Head>
         <title>免费刷步神器</title>
         <meta name="description" content="还在为每日步数发愁？试试这款超好用的自动刷步助手，一键轻松修改微信、QQ、支付宝运动步数，支持小米运动同步。告别手动烦恼，快速达成运动目标，安全稳定，立即体验！" />
-        <meta content="开心步数助手,自动刷步,自定义步数,步数修改,微信刷步,支付宝刷步,QQ刷步,小米运动刷步,刷步助手" name="keywords">
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+  
       <div className="background-shapes">
         <div className="shape shape-1"></div>
         <div className="shape shape-2"></div>
