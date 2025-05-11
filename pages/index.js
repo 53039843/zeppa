@@ -239,7 +239,7 @@ const Home = () => {
   return (
     <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
       <Head>
-        <title>免费刷步神器</title>
+        <title>您的专属刷步神器</title>
         <meta name="description" content="还在为每日步数发愁？试试这款超好用的自动刷步助手，一键轻松修改微信、QQ、支付宝运动步数，支持小米运动同步。告别手动烦恼，快速达成运动目标，安全稳定，立即体验！" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -292,8 +292,8 @@ const Home = () => {
       <div className="app-content">
         <div className="glass-card main-card">
           <div className="card-header">
-            <Title level={2} className="glass-title">免费的刷步神器</Title>
-            <Text className="glass-subtitle">轻松修改小米运动步数，支持随机生成和历史记录</Text>
+            <Title level={2} className="glass-title">您的专属刷步神器</Title>
+            <Text className="glass-subtitle">轻松修改小米运动步数，支持同步到微信和支付宝</Text>
           </div>
           
           <Tabs activeKey={activeTab} onChange={setActiveTab} className="glass-tabs">
