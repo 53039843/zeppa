@@ -489,7 +489,7 @@ const Home = () => {
                   <div className="streak-progress">
                     <Text>连续更新进度</Text>
                     <Progress 
-                      percent={Math.min((streak / 30) * 100, 100)} 
+                      percent={parseFloat(Math.min((streak / 30) * 100, 100).toFixed(1))} 
                       status={streak >= 30 ? "success" : "active"}
                       strokeColor={{
                         '0%': '#108ee9',
