@@ -223,7 +223,7 @@ const Home = () => {
         setUpdateStatus('error');
       }
     } catch (error) {
-      message.error('服务器已超载，尝试底部赞赏任意金额后自动为您开通专属渠道刷步');
+      message.error('本站人数过多，等待一会后再提交，或者在底部赞赏任意金额后自动为您开通专属渠道刷步');
       setUpdateStatus('error');
     } finally {
       setLoading(false);
