@@ -223,7 +223,7 @@ const Home = () => {
         setUpdateStatus('error');
       }
     } catch (error) {
-      message.error('当前使用人数过多，等待一会后再提交，或者在底部赞赏任意金额>1 后自动为您开通专属接口刷步');
+      message.error('当前提交人数过多，等待一会后再提交或使用2号站');
       setUpdateStatus('error');
     } finally {
       setLoading(false);
