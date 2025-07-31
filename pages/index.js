@@ -648,7 +648,7 @@ const Home = () => {
       >
         <div className="qrcode-container">
           <img 
-            src="https://ol.hpny.shop/zsm.jpg" 
+            src="https://ol.xhy6.com/zsm.jpg" 
             alt="微信打赏二维码" 
             className="qrcode-image"
           />
