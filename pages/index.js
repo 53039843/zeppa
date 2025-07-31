@@ -511,7 +511,7 @@ const Home = () => {
         <div className="action-buttons">
           <Button 
             icon={<GithubOutlined />} 
-            href="https://ol.hpny.shop" 
+            href="https://ol.xhy6.com" 
             target="_blank"
             className="glass-button-secondary"
           >
