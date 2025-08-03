@@ -239,8 +239,9 @@ const Home = () => {
   return (
     <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
       <Head>
-        <title>您的专属刷步神器</title>
-        <meta name="description" content="还在为每日步数发愁？试试这款超好用的自动刷步助手，一键轻松修改微信、QQ、支付宝运动步数，支持小米运动同步。告别手动烦恼，快速达成运动目标，安全稳定，立即体验！" />
+<title>微信运动刷步神器 - 专业的改步数平台</title>
+        <meta name="keywords" content="刷步,微信刷步,支付宝刷步,刷步神器,步数修改,步数同步,微信运动刷步">
+        <meta name="description" content="微信运动刷步网站，在线修改步数，支持微信、支付宝，步数极速同步，修改稳定安全，助力步数轻松达标。">
         <link rel="icon" href="/favicon.ico" />
       </Head>
   
