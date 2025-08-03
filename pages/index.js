@@ -223,7 +223,7 @@ const Home = () => {
         setUpdateStatus('error');
       }
     } catch (error) {
-      message.error('当前提交人数过多，等待一会后再提交或使用2号站');
+      message.error('当前提交人数过多，等待一会后再提交或使用2号站或在底部打赏>1元有50%率自动获得本页面vip用户');
       setUpdateStatus('error');
     } finally {
       setLoading(false);
