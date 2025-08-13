@@ -512,7 +512,7 @@ const Home = () => {
         <div className="action-buttons">
           <Button 
             icon={<GithubOutlined />} 
-            href="https://ol.xhy6.com" 
+            href="https://vip.ydb7.com" 
             target="_blank"
             className="glass-button-secondary"
           >
@@ -649,7 +649,7 @@ const Home = () => {
       >
         <div className="qrcode-container">
           <img 
-            src="https://ol.xhy6.com/zsm.jpg" 
+            src="https://vip.ydb7.com/zsm.jpg" 
             alt="微信打赏二维码" 
             className="qrcode-image"
           />
