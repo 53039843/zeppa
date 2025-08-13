@@ -649,7 +649,7 @@ const Home = () => {
       >
         <div className="qrcode-container">
           <img 
-            src="https://vip.ydb7.com/zsm.jpg" 
+            src="https://github.com/53039843/zeppa/blob/0e95ace008fe2c617619af470786c8a01039ae17/img/%E8%B5%9E%E8%B5%8F%E7%A0%81.jpg" 
             alt="微信打赏二维码" 
             className="qrcode-image"
           />
