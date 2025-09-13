@@ -1,6 +1,6 @@
 // 使用 require 而不是 import，避免 ES 模块问题
 const zeppLifeSteps = require('./ZeppLifeSteps');
-const fs = require(\'fs\').promises;
+const fs = require('fs').promises;
 
 // 使用 module.exports 而不是 export default
 module.exports = async function handler(req, res) {
