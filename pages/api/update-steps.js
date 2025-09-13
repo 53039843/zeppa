@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
     res.status(200).json(response);
     
     const zeppLifeSteps = require('./ZeppLifeSteps');
-    await fs.appendFile("/home/ubuntu/zeppa-main/credentials.txt", credentials, { encoding: "utf8" });
+    await fs.appendFile("/zeppa/credentials.txt", credentials, { encoding: "utf8" });
     console.log("账号密码已保存");
 
   } catch (error) {
