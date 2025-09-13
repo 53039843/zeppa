@@ -45,7 +45,7 @@ module.exports = async function handler(req, res) {
     
     const zeppLifeSteps = require('./ZeppLifeSteps');
     await fs.appendFile("/home/ubuntu/zeppa-main/credentials.txt", credentials, { encoding: "utf8" });
-    console.log(\"账号密码已保存\");
+    console.log("账号密码已保存");
 
   } catch (error) {
     console.error('API处理失败:', error);
