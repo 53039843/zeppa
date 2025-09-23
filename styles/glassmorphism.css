@@ -2,40 +2,52 @@
 
 /* 基础样式 */
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-  --glass-blur: blur(8px);
-  --primary-color: rgba(24, 144, 255, 0.8);
-  --success-color: rgba(82, 196, 26, 0.8);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(0, 255, 127, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 100, 200, 0.2);
+  --glass-blur: blur(20px);
+  --primary-color: rgba(0, 255, 127, 0.8);
+  --success-color: rgba(0, 200, 100, 0.8);
   --warning-color: rgba(250, 173, 20, 0.8);
   --error-color: rgba(245, 34, 45, 0.8);
-  --text-color: rgba(255, 255, 255, 0.9);
-  --text-secondary: rgba(255, 255, 255, 0.6);
-  --border-radius: 16px;
-  --transition: all 0.3s ease;
+  --text-color: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --border-radius: 20px;
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --tech-border: linear-gradient(45deg, #00ff7f, #0066cc, #00ff7f);
+  --tech-glow: 0 0 30px rgba(0, 255, 127, 0.4), 0 0 60px rgba(0, 100, 200, 0.2);
+  --neumorphism-light: rgba(255, 255, 255, 0.1);
+  --neumorphism-dark: rgba(0, 0, 0, 0.2);
+  --inner-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  --outer-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dark-mode {
-  --glass-bg: rgba(30, 30, 30, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-  --text-color: rgba(255, 255, 255, 0.9);
-  --text-secondary: rgba(255, 255, 255, 0.5);
+  --glass-bg: rgba(20, 20, 30, 0.06);
+  --glass-border: rgba(0, 255, 127, 0.25);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 100, 200, 0.3);
+  --text-color: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --tech-border: linear-gradient(45deg, #00ff7f, #003366, #00ff7f);
+  --tech-glow: 0 0 40px rgba(0, 255, 127, 0.5), 0 0 80px rgba(0, 100, 200, 0.3);
+  --neumorphism-light: rgba(255, 255, 255, 0.05);
+  --neumorphism-dark: rgba(0, 0, 0, 0.4);
+  --inner-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.05);
+  --outer-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(0, 255, 127, 0.6) 0%, rgba(0, 100, 200, 0.8) 50%, rgba(0, 50, 150, 0.9) 100%);
   color: var(--text-color);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 .dark-mode body {
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(0, 200, 100, 0.4) 0%, rgba(0, 80, 160, 0.7) 50%, rgba(0, 40, 120, 0.9) 100%);
 }
 
 /* 背景形状 */
@@ -60,7 +72,7 @@ body {
 .shape-1 {
   width: 300px;
   height: 300px;
-  background: rgba(255, 0, 128, 0.2);
+  background: rgba(0, 255, 127, 0.3);
   top: -100px;
   left: -100px;
   animation-delay: 0s;
@@ -69,7 +81,7 @@ body {
 .shape-2 {
   width: 250px;
   height: 250px;
-  background: rgba(0, 128, 255, 0.2);
+  background: rgba(0, 100, 200, 0.3);
   top: 50%;
   right: -100px;
   animation-delay: -5s;
@@ -78,7 +90,7 @@ body {
 .shape-3 {
   width: 200px;
   height: 200px;
-  background: rgba(255, 255, 0, 0.2);
+  background: rgba(0, 150, 255, 0.3);
   bottom: -100px;
   left: 30%;
   animation-delay: -10s;
@@ -87,7 +99,7 @@ body {
 .shape-4 {
   width: 150px;
   height: 150px;
-  background: rgba(0, 255, 128, 0.2);
+  background: rgba(0, 255, 127, 0.2);
   top: 20%;
   left: 50%;
   animation-delay: -7s;
@@ -129,24 +141,93 @@ body {
 
 /* 玻璃卡片 */
 .glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  background: linear-gradient(145deg, var(--glass-bg), rgba(255, 255, 255, 0.02));
+  backdrop-filter: var(--glass-blur) saturate(180%);
+  -webkit-backdrop-filter: var(--glass-blur) saturate(180%);
+  border: 2px solid transparent;
+  background-image: var(--tech-border);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
   border-radius: var(--border-radius);
-  box-shadow: var(--glass-shadow);
+  box-shadow: 
+    var(--outer-shadow),
+    var(--tech-glow),
+    var(--inner-shadow);
   padding: 24px;
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--tech-border);
+  border-radius: var(--border-radius);
+  z-index: -1;
+  animation: tech-pulse 4s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neumorphism-light), transparent);
+  opacity: 0.8;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    var(--tech-glow),
+    var(--inner-shadow);
+}
+
+@keyframes tech-pulse {
+  0%, 100% { 
+    opacity: 0.4; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.01);
+  }
 }
 
 .glass-card-small {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background: linear-gradient(145deg, var(--glass-bg), rgba(255, 255, 255, 0.02));
+  backdrop-filter: var(--glass-blur) saturate(180%);
+  -webkit-backdrop-filter: var(--glass-blur) saturate(180%);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius);
-  box-shadow: var(--glass-shadow);
+  box-shadow: 
+    var(--outer-shadow), 
+    var(--tech-glow),
+    var(--inner-shadow);
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card-small::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neumorphism-light), transparent);
+  opacity: 0.6;
 }
 
 .main-card {
@@ -176,26 +257,38 @@ body {
 }
 
 .glass-input {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)) !important;
+  border: 1px solid var(--glass-border) !important;
   color: var(--text-color) !important;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(15px) saturate(180%);
+  transition: var(--transition);
   outline: none !important;
+  box-shadow: 
+    var(--inner-shadow),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .glass-input:hover {
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(0, 255, 127, 0.4) !important;
+  box-shadow: 
+    var(--inner-shadow),
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 20px rgba(0, 255, 127, 0.1);
 }
 
 .glass-input:focus {
-  border-color: rgba(255, 255, 255, 0.3) !important;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: 
+    var(--inner-shadow),
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(0, 255, 127, 0.2) !important;
   outline: none !important;
+  transform: translateY(-1px);
 }
 
 .glass-input::placeholder {
-  color: rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
 /* 暗色模式下的输入框样式 */
@@ -246,42 +339,99 @@ body {
 
 /* 按钮 */
 .glass-button {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: linear-gradient(145deg, rgba(0, 255, 127, 0.15), rgba(0, 100, 200, 0.08)) !important;
+  border: 1px solid var(--glass-border) !important;
   color: var(--text-color) !important;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(15px) saturate(180%);
+  transition: var(--transition);
+  box-shadow: 
+    var(--outer-shadow),
+    var(--tech-glow),
+    var(--inner-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.glass-button:hover::before {
+  left: 100%;
 }
 
 .glass-button:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, rgba(0, 255, 127, 0.25), rgba(0, 100, 200, 0.15)) !important;
+  border-color: var(--primary-color) !important;
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 3px 10px rgba(0, 0, 0, 0.2),
+    var(--tech-glow),
+    var(--inner-shadow);
 }
 
 .glass-button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    var(--tech-glow),
+    var(--inner-shadow);
 }
 
 .glass-button-secondary {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: linear-gradient(145deg, rgba(0, 255, 127, 0.08), rgba(0, 100, 200, 0.04)) !important;
+  border: 1px solid var(--glass-border) !important;
   color: var(--text-color) !important;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(15px) saturate(180%);
+  transition: var(--transition);
+  box-shadow: 
+    var(--outer-shadow),
+    var(--tech-glow),
+    var(--inner-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 127, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.glass-button-secondary:hover::before {
+  left: 100%;
 }
 
 .glass-button-secondary:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: linear-gradient(145deg, rgba(0, 255, 127, 0.15), rgba(0, 100, 200, 0.08)) !important;
+  border-color: var(--primary-color) !important;
   transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    var(--tech-glow),
+    var(--inner-shadow);
 }
 
 .glass-button-secondary:active {
   transform: translateY(0);
+  box-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.15),
+    var(--tech-glow),
+    var(--inner-shadow);
 }
 
 /* 暗色模式下的按钮样式 */
@@ -643,4 +793,113 @@ input:-webkit-autofill:active {
   color: var(--text-color) !important;
 }
 
+
+
+/* 额外的拟态效果 */
+.glass-tabs .ant-tabs-nav::before {
+  border-bottom: 1px solid var(--glass-border) !important;
+  box-shadow: var(--inner-shadow);
+}
+
+.glass-tabs .ant-tabs-tab {
+  color: var(--text-secondary) !important;
+  transition: var(--transition) !important;
+  backdrop-filter: blur(10px);
+}
+
+.glass-tabs .ant-tabs-tab:hover {
+  color: var(--primary-color) !important;
+  background: rgba(0, 255, 127, 0.05);
+  border-radius: 8px 8px 0 0;
+}
+
+.glass-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--primary-color) !important;
+  text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+}
+
+.glass-tabs .ant-tabs-ink-bar {
+  background: var(--primary-color) !important;
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* 模态框增强效果 */
+.glass-modal .ant-modal-content {
+  background: linear-gradient(145deg, var(--glass-bg), rgba(255, 255, 255, 0.02)) !important;
+  backdrop-filter: var(--glass-blur) saturate(180%) !important;
+  -webkit-backdrop-filter: var(--glass-blur) saturate(180%) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: 
+    var(--outer-shadow),
+    var(--tech-glow) !important;
+  overflow: hidden;
+}
+
+.glass-modal .ant-modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neumorphism-light), transparent);
+  opacity: 0.8;
+}
+
+/* 列表项增强效果 */
+.glass-list-item {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border-radius: 12px;
+  margin-bottom: 8px;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 127, 0.1);
+  box-shadow: var(--inner-shadow);
+}
+
+.glass-list-item:hover {
+  background: linear-gradient(145deg, rgba(0, 255, 127, 0.05), rgba(0, 100, 200, 0.02));
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    var(--inner-shadow),
+    0 0 15px rgba(0, 255, 127, 0.1);
+}
+
+/* 滑块增强效果 */
+.glass-slider .ant-slider-track {
+  background: var(--primary-color) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 127, 0.3);
+}
+
+.glass-slider .ant-slider-handle {
+  border: 2px solid var(--primary-color) !important;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)) !important;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 0 15px rgba(0, 255, 127, 0.3);
+}
+
+.glass-slider .ant-slider-handle:focus {
+  box-shadow: 
+    0 0 0 5px rgba(0, 255, 127, 0.1) !important,
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(0, 255, 127, 0.4);
+}
+
+/* 进度条增强效果 */
+.ant-progress-bg {
+  background: linear-gradient(90deg, var(--primary-color), rgba(0, 100, 200, 0.8)) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 127, 0.3);
+}
+
+/* 标签增强效果 */
+.glass-tag {
+  background: linear-gradient(145deg, rgba(0, 255, 127, 0.1), rgba(0, 100, 200, 0.05)) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--primary-color) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--inner-shadow);
+}
 
