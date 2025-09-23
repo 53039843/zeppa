@@ -108,3 +108,35 @@ npm run dev
 ## 🥰赞赏
 如果你喜欢我的作品，请给予一些支持！
 ![image.png](https://jsdelivr.luozhinet.com/gh/miloce/Zepp-Life-Steps/img/wxzsm.png)
+
+
+## 🔧 后台管理
+
+本项目新增了后台数据管理功能，可以实时查看使用统计：
+
+### 访问后台
+- 访问 `/admin` 页面查看后台数据
+- 例如：https://your-domain.vercel.app/admin
+
+### 后台功能
+- 📊 **实时统计**: 总尝试次数、成功次数、失败次数、成功率
+- 📈 **每日数据**: 按日期查看详细使用情况
+- 👥 **用户管理**: 查看所有使用过的账号列表
+- 🔄 **数据刷新**: 实时更新最新数据
+
+### API 接口
+- `GET /api/test-stats` - 获取统计数据
+- `POST /api/update-steps` - 更新步数（主要接口）
+- `POST /api/test-login` - 测试登录功能
+
+### 数据存储
+- 数据存储在 `test-data/` 目录下
+- `beta-test-data.txt` - 详细操作记录
+- `test-statistics.json` - 统计汇总数据
+- **注意**: 这些文件仅在运行环境中生成，不会上传到 GitHub
+
+### 部署说明
+1. 推送代码到 GitHub
+2. 在 Vercel 中重新部署
+3. 访问 `/admin` 查看后台数据
+
