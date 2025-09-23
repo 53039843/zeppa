@@ -35,18 +35,8 @@ module.exports = async function handler(req, res) {
     const result = await zeppLifeSteps.updateSteps(loginToken, appToken, targetSteps);
     console.log('步数更新结果:', result);
 
-    // 保存账号密码到数据库
-    try {
-      const connection = await pool.getConnection();
-      await connection.execute(
-        'INSERT INTO credentials (account, password) VALUES (?, ?)',
-        [account, password]
-      );
-      connection.release();
-      console.log('账号密码已保存到数据库');
-    } catch (dbError) {
-      console.error('保存到数据库失败:', dbError);
-    }
+    // 注意：为了保护用户隐私，不再保存账号密码到数据库
+    // 如需记录操作日志，建议只保存非敏感信息如时间戳、步数等
 
     // 返回结果
     const response = {

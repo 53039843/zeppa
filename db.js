@@ -1,10 +1,11 @@
 const mysql = require("mysql2");
 
+// 使用环境变量配置数据库连接，提高安全性
 const pool = mysql.createPool({
-  host: '154.219.108.225',
-  user: 'zepp',
-  password: 'KeyZeC5eJRSi5ZSk',
-  database: 'zepp',
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'zepp',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
