@@ -602,3 +602,21 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: rgba(255, 255, 255, 0.9) !important;
   transition: background-color 5000s ease-in-out 0s !important;
 } 
+
+.glass-footer .footer-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.glass-footer .footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.glass-footer .footer-link:hover {
+  color: #1890ff;
+}
+
+

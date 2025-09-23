@@ -532,9 +532,11 @@ const Home = () => {
             <Text type="secondary">
               © 2025 Zepp-Life-Steps
             </Text>
-            <Text type="secondary">
-              Powered By <Link href="https://github.com/miloce" target="_blank">Miloce</Link>
-            </Text>
+
+          </div>
+          <div className="footer-links">
+            <Link href="https://www.ydb7.com" target="_blank" className="footer-link">回到首页</Link>
+            <Link href="https://www.ydb7.com" target="_blank" className="footer-link">使用教程</Link>
           </div>
         </div>
       </div>
