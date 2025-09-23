@@ -528,14 +528,16 @@ const Home = () => {
           </Button>
             <Button 
             icon={<HomeOutlined />} 
-            onClick={() => window.location.href = window.location.origin}
+            href="https://www.ydb7.com" 
+            target="_blank"
             className="glass-button-home"
           >
             回到首页
           </Button>
           <Button 
             icon={<InfoCircleOutlined />} 
-            onClick={() => window.location.href = window.location.origin}
+            href="https://www.ydb7.com"
+            target="_blank"
             className="glass-button-secondary"
           >
             教程
