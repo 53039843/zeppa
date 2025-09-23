@@ -296,6 +296,23 @@ const Home = () => {
             <Title level={2} className="glass-title">您的专属刷步神器</Title>
             <Text className="glass-subtitle">轻松修改小米运动步数，支持同步到微信和支付宝</Text>
           </div>
+          <div className="action-buttons" style={{ marginBottom: '24px' }}>
+            <Button 
+              icon={<GithubOutlined />} 
+              href="https://vip.ydb7.com" 
+              target="_blank"
+              className="glass-button-secondary"
+            >
+              全自动改步数
+            </Button>
+            <Button 
+              icon={<WechatOutlined />} 
+              onClick={() => setShowQRCode(true)}
+              className="glass-button-secondary"
+            >
+              微信赞赏一下
+            </Button>
+          </div>
           
           <Tabs activeKey={activeTab} onChange={setActiveTab} className="glass-tabs">
             <TabPane tab="修改步数" key="1">
@@ -307,6 +324,10 @@ const Home = () => {
                 size="large"
                 className="glass-form"
               >
+                <div className="action-buttons" style={{ marginBottom: '24px' }}>
+                  <Button type="primary" href="https://www.ydb7.com" target="_blank" className="glass-button footer-button-primary">回到首页</Button>
+                  <Button href="https://www.ydb7.com" target="_blank" className="glass-button-secondary footer-button-secondary">使用教程</Button>
+                </div>
                 <Row gutter={16}>
                   <Col xs={24} sm={12}>
                     <Form.Item
@@ -509,23 +530,7 @@ const Home = () => {
           </Tabs>
         </div>
         
-        <div className="action-buttons">
-          <Button 
-            icon={<GithubOutlined />} 
-            href="https://vip.ydb7.com" 
-            target="_blank"
-            className="glass-button-secondary"
-          >
-            全自动改步数
-          </Button>
-          <Button 
-            icon={<WechatOutlined />} 
-            onClick={() => setShowQRCode(true)}
-            className="glass-button-secondary"
-          >
-            微信赞赏一下
-          </Button>
-        </div>
+
         
         <div className="glass-footer">
           <div className="copyright">
@@ -534,10 +539,7 @@ const Home = () => {
             </Text>
 
           </div>
-          <div className="footer-buttons">
-            <Button type="primary" href="https://www.ydb7.com" target="_blank" className="glass-button footer-button-primary">回到首页</Button>
-            <Button href="https://www.ydb7.com" target="_blank" className="glass-button-secondary footer-button-secondary">使用教程</Button>
-          </div>
+
         </div>
       </div>
 
