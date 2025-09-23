@@ -620,3 +620,27 @@ input:-webkit-autofill:active {
 }
 
 
+
+
+.glass-footer .footer-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.glass-footer .footer-button-primary {
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #fff !important;
+}
+
+.glass-footer .footer-button-primary:hover {
+  background: #40a9ff !important;
+  border-color: #40a9ff !important;
+}
+
+.glass-footer .footer-button-secondary {
+  color: var(--text-color) !important;
+}
+
+

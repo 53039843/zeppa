@@ -534,9 +534,9 @@ const Home = () => {
             </Text>
 
           </div>
-          <div className="footer-links">
-            <Link href="https://www.ydb7.com" target="_blank" className="footer-link">回到首页</Link>
-            <Link href="https://www.ydb7.com" target="_blank" className="footer-link">使用教程</Link>
+          <div className="footer-buttons">
+            <Button type="primary" href="https://www.ydb7.com" target="_blank" className="glass-button footer-button-primary">回到首页</Button>
+            <Button href="https://www.ydb7.com" target="_blank" className="glass-button-secondary footer-button-secondary">使用教程</Button>
           </div>
         </div>
       </div>
