@@ -1,6 +1,6 @@
 const { getTestStatistics } = require('../../utils/dataCollector');
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ success: false, message: '方法不允许' });
   }
@@ -20,4 +20,4 @@ module.exports = async function handler(req, res) {
       message: '获取统计信息失败'
     });
   }
-};
+}
