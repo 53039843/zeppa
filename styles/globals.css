@@ -692,3 +692,332 @@ a {
   color: #ffffff;
 }
 
+
+
+/* 回首页按钮样式 */
+.glass-button-home {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.8), rgba(0, 212, 255, 0.8)) !important;
+  border: 1px solid rgba(0, 255, 136, 0.5) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button-home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.glass-button-home:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 1), rgba(0, 212, 255, 1)) !important;
+  border-color: rgba(0, 255, 136, 0.8) !important;
+  box-shadow: 
+    0 6px 30px rgba(0, 255, 136, 0.4),
+    0 0 40px rgba(0, 255, 136, 0.2) !important;
+  transform: translateY(-3px);
+}
+
+.glass-button-home:hover::before {
+  left: 100%;
+}
+
+/* 增强科技感的动画效果 */
+.app-container::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 110, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+  animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+/* 增强标题的科技感 */
+.glass-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  animation: title-underline 2s ease-in-out infinite;
+}
+
+@keyframes title-underline {
+  0%, 100% { width: 100px; opacity: 0.5; }
+  50% { width: 200px; opacity: 1; }
+}
+
+/* 增强卡片的科技感边框 */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, 
+    rgba(0, 212, 255, 0.5) 0%, 
+    rgba(255, 0, 110, 0.5) 25%, 
+    rgba(0, 255, 136, 0.5) 50%, 
+    rgba(255, 170, 0, 0.5) 75%, 
+    rgba(0, 212, 255, 0.5) 100%);
+  border-radius: 16px;
+  z-index: -1;
+  animation: border-glow 3s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes border-glow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 增强输入框的科技感 */
+.glass-input:focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #00d4ff, #ff006e, #00ff88, #ffaa00) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: input-border-flow 2s linear infinite;
+}
+
+@keyframes input-border-flow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* 增强按钮的科技感 */
+.glass-button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 
+    0 2px 15px rgba(0, 212, 255, 0.6),
+    inset 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 增强标签页的科技感 */
+.glass-tabs .ant-tabs-tab-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00d4ff, #ff006e);
+  animation: tab-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes tab-glow {
+  0% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); }
+  100% { box-shadow: 0 0 15px rgba(0, 212, 255, 1); }
+}
+
+/* 增强列表项的科技感 */
+.glass-list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #00d4ff, #ff006e);
+  border-radius: 0 3px 3px 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-list-item:hover::before {
+  opacity: 1;
+}
+
+/* 增强统计卡片的科技感 */
+.glass-card-small::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background: #00d4ff;
+  border-radius: 50%;
+  animation: status-blink 2s ease-in-out infinite;
+}
+
+@keyframes status-blink {
+  0%, 50% { opacity: 1; box-shadow: 0 0 10px #00d4ff; }
+  51%, 100% { opacity: 0.3; box-shadow: none; }
+}
+
+/* 增强footer的科技感 */
+.glass-footer {
+  position: relative;
+  margin-top: 40px;
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.glass-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  animation: footer-line 3s ease-in-out infinite;
+}
+
+@keyframes footer-line {
+  0%, 100% { width: 200px; opacity: 0.5; }
+  50% { width: 400px; opacity: 1; }
+}
+
+/* 增强操作按钮区域 */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 32px 0;
+  flex-wrap: wrap;
+}
+
+.action-buttons .ant-btn {
+  min-width: 140px;
+  height: 44px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 增强模态框的科技感 */
+.glass-modal .ant-modal-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-modal .ant-modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  animation: modal-scan 2s linear infinite;
+}
+
+@keyframes modal-scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* 增强二维码容器 */
+.qrcode-container {
+  position: relative;
+}
+
+.qrcode-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 16px;
+  animation: qr-border-pulse 2s ease-in-out infinite;
+}
+
+@keyframes qr-border-pulse {
+  0%, 100% { border-color: rgba(0, 212, 255, 0.3); transform: scale(1); }
+  50% { border-color: rgba(0, 212, 255, 0.8); transform: scale(1.02); }
+}
+
+/* 增强帮助内容的科技感 */
+.help-content h3::before {
+  content: '▶ ';
+  color: #00d4ff;
+  font-size: 0.8em;
+  margin-right: 8px;
+}
+
+.help-content li::marker {
+  color: #00d4ff;
+}
+
+/* 增强设置项的科技感 */
+.setting-item {
+  position: relative;
+  padding-left: 20px;
+}
+
+.setting-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: #00d4ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00d4ff;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .action-buttons .ant-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* 增强加载状态 */
+.ant-spin-dot-item {
+  background-color: #00d4ff !important;
+}
+
+.ant-spin-dot {
+  animation: spin-glow 1.2s infinite linear;
+}
+
+@keyframes spin-glow {
+  0% { filter: drop-shadow(0 0 2px #00d4ff); }
+  50% { filter: drop-shadow(0 0 8px #00d4ff); }
+  100% { filter: drop-shadow(0 0 2px #00d4ff); }
+}
+

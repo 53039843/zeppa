@@ -27,7 +27,8 @@ import {
   QuestionCircleOutlined,
   DeleteOutlined,
   RestOutlined,
-  ReloadOutlined
+  ReloadOutlined,
+  HomeOutlined
 } from '@ant-design/icons';
 import Head from 'next/head';
 
@@ -525,15 +526,26 @@ const Home = () => {
           >
             微信赞赏一下
           </Button>
+            <Button 
+            icon={<HomeOutlined />} 
+            onClick={() => window.location.href = window.location.origin}
+            className="glass-button-home"
+          >
+            回到首页
+          </Button>
+          <Button 
+            icon={<InfoCircleOutlined />} 
+            onClick={() => window.location.href = window.location.origin}
+            className="glass-button-secondary"
+          >
+            教程
+          </Button>
         </div>
         
         <div className="glass-footer">
           <div className="copyright">
             <Text type="secondary">
-              © 2025 Zepp-Life-Steps
-            </Text>
-            <Text type="secondary">
-              Powered By <Link href="https://github.com/miloce" target="_blank">Miloce</Link>
+              © 2025 Zepp-Life-Steps - 专业的科技化刷步平台
             </Text>
           </div>
         </div>
