@@ -2,52 +2,52 @@
 
 /* 基础样式 */
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.15); /* 透明乳白色 */
-  --glass-border: rgba(255, 255, 255, 0.3); /* 柔和的边框 */
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(147, 51, 234, 0.15); /* 透明紫色 */
+  --glass-border: rgba(147, 51, 234, 0.3); /* 紫色边框 */
+  --glass-shadow: 0 8px 32px 0 rgba(147, 51, 234, 0.1);
   --glass-blur: blur(20px); /* 增强毛玻璃效果 */
-  --primary-color: #4CAF50; /* 绿色 */
-  --success-color: #8BC34A; /* 浅绿色 */
-  --warning-color: #FFC107; /* 黄色 */
-  --error-color: #F44336; /* 红色 */
+  --primary-color: #9333EA; /* 紫色 */
+  --success-color: #A855F7; /* 浅紫色 */
+  --warning-color: #F59E0B; /* 黄色 */
+  --error-color: #EF4444; /* 红色 */
   --text-color: rgba(255, 255, 255, 0.9); /* 适应深色背景的文字颜色 */
   --text-secondary: rgba(255, 255, 255, 0.7);
   --border-radius: 22px;
   --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  --tech-border: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); /* 柔和的科技感边框 */
-  --tech-glow: 0 0 15px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1); /* 柔和的光晕 */
-  --neumorphism-light: rgba(255, 255, 255, 0.2);
+  --tech-border: linear-gradient(45deg, rgba(147, 51, 234, 0.2), rgba(147, 51, 234, 0.1)); /* 紫色科技感边框 */
+  --tech-glow: 0 0 15px rgba(147, 51, 234, 0.3), 0 0 30px rgba(147, 51, 234, 0.2); /* 紫色光晕 */
+  --neumorphism-light: rgba(147, 51, 234, 0.2);
   --neumorphism-dark: rgba(0, 0, 0, 0.1);
-  --inner-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2); /* 内部高光 */
-  --outer-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+  --inner-shadow: inset 0 0 0 1px rgba(147, 51, 234, 0.2); /* 紫色内部高光 */
+  --outer-shadow: 0 8px 32px rgba(147, 51, 234, 0.1), 0 4px 15px rgba(147, 51, 234, 0.05);
 }
 
 .dark-mode {
-  --glass-bg: rgba(255, 255, 255, 0.1); /* 深色模式下更透明的乳白色 */
-  --glass-border: rgba(255, 255, 255, 0.2); /* 柔和的边框 */
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  --glass-bg: rgba(147, 51, 234, 0.1); /* 深色模式下透明紫色 */
+  --glass-border: rgba(147, 51, 234, 0.2); /* 紫色边框 */
+  --glass-shadow: 0 8px 32px 0 rgba(147, 51, 234, 0.15);
   --text-color: rgba(255, 255, 255, 0.9);
   --text-secondary: rgba(255, 255, 255, 0.6);
-  --tech-border: linear-gradient(45deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-  --tech-glow: 0 0 12px rgba(255, 255, 255, 0.15), 0 0 25px rgba(255, 255, 255, 0.08);
-  --neumorphism-light: rgba(255, 255, 255, 0.15);
+  --tech-border: linear-gradient(45deg, rgba(147, 51, 234, 0.15), rgba(147, 51, 234, 0.08));
+  --tech-glow: 0 0 12px rgba(147, 51, 234, 0.25), 0 0 25px rgba(147, 51, 234, 0.15);
+  --neumorphism-light: rgba(147, 51, 234, 0.15);
   --neumorphism-dark: rgba(0, 0, 0, 0.2);
-  --inner-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
-  --outer-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 0 4px 15px rgba(0, 0, 0, 0.1);
+  --inner-shadow: inset 0 0 0 1px rgba(147, 51, 234, 0.15);
+  --outer-shadow: 0 8px 32px rgba(147, 51, 234, 0.15), 0 4px 15px rgba(147, 51, 234, 0.1);
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(135deg, #0a192f 0%, #1a2a40 100%); /* 深蓝色渐变 */
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%); /* 深紫色渐变 */
   color: var(--text-color);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 .dark-mode body {
-  background: linear-gradient(135deg, #0a192f 0%, #1a2a40 100%); /* 深蓝色渐变 */
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%); /* 深紫色渐变 */
 }
 
 /* 背景形状 */
@@ -72,7 +72,7 @@ body {
 .shape-1 {
   width: 300px;
   height: 300px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(147, 51, 234, 0.12);
   top: -100px;
   left: -100px;
   animation-delay: 0s;
@@ -81,7 +81,7 @@ body {
 .shape-2 {
   width: 250px;
   height: 250px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(168, 85, 247, 0.10);
   top: 50%;
   right: -100px;
   animation-delay: -5s;
@@ -90,7 +90,7 @@ body {
 .shape-3 {
   width: 200px;
   height: 200px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(196, 181, 253, 0.08);
   bottom: -100px;
   left: 30%;
   animation-delay: -10s;
@@ -99,7 +99,7 @@ body {
 .shape-4 {
   width: 150px;
   height: 150px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(139, 92, 246, 0.11);
   top: 20%;
   left: 50%;
   animation-delay: -7s;
@@ -265,19 +265,19 @@ body {
 }
 
 .glass-input:hover {
-  border-color: rgba(0, 255, 127, 0.4) !important;
+  border-color: rgba(147, 51, 234, 0.4) !important;
   box-shadow: 
     var(--inner-shadow),
-    0 4px 12px rgba(0, 0, 0, 0.15),
-    0 0 20px rgba(0, 255, 127, 0.1);
+    0 4px 12px rgba(147, 51, 234, 0.15),
+    0 0 20px rgba(147, 51, 234, 0.1);
 }
 
 .glass-input:focus {
   border-color: var(--primary-color) !important;
   box-shadow: 
     var(--inner-shadow),
-    0 4px 12px rgba(0, 0, 0, 0.2),
-    0 0 30px rgba(0, 255, 127, 0.2) !important;
+    0 4px 12px rgba(147, 51, 234, 0.2),
+    0 0 30px rgba(147, 51, 234, 0.2) !important;
   outline: none !important;
   transform: translateY(-1px);
 }
@@ -334,7 +334,7 @@ body {
 
 /* 按钮 */
 .glass-button {
-  background: linear-gradient(145deg, rgba(0, 255, 127, 0.15), rgba(0, 100, 200, 0.08)) !important;
+  background: linear-gradient(145deg, rgba(147, 51, 234, 0.15), rgba(168, 85, 247, 0.08)) !important;
   border: 1px solid var(--glass-border) !important;
   color: var(--text-color) !important;
   backdrop-filter: blur(15px) saturate(180%);
@@ -363,12 +363,12 @@ body {
 }
 
 .glass-button:hover {
-  background: linear-gradient(145deg, rgba(0, 255, 127, 0.25), rgba(0, 100, 200, 0.15)) !important;
+  background: linear-gradient(145deg, rgba(147, 51, 234, 0.25), rgba(168, 85, 247, 0.15)) !important;
   border-color: var(--primary-color) !important;
   transform: translateY(-3px);
   box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.3),
-    0 3px 10px rgba(0, 0, 0, 0.2),
+    0 8px 25px rgba(147, 51, 234, 0.3),
+    0 3px 10px rgba(147, 51, 234, 0.2),
     var(--tech-glow),
     var(--inner-shadow);
 }
@@ -382,7 +382,7 @@ body {
 }
 
 .glass-button-secondary {
-  background: linear-gradient(145deg, rgba(0, 255, 127, 0.08), rgba(0, 100, 200, 0.04)) !important;
+  background: linear-gradient(145deg, rgba(147, 51, 234, 0.08), rgba(168, 85, 247, 0.04)) !important;
   border: 1px solid var(--glass-border) !important;
   color: var(--text-color) !important;
   backdrop-filter: blur(15px) saturate(180%);
@@ -411,12 +411,12 @@ body {
 }
 
 .glass-button-secondary:hover {
-  background: linear-gradient(145deg, rgba(0, 255, 127, 0.15), rgba(0, 100, 200, 0.08)) !important;
+  background: linear-gradient(145deg, rgba(147, 51, 234, 0.15), rgba(168, 85, 247, 0.08)) !important;
   border-color: var(--primary-color) !important;
   transform: translateY(-2px);
   box-shadow: 
-    0 6px 20px rgba(0, 0, 0, 0.25),
-    0 2px 8px rgba(0, 0, 0, 0.15),
+    0 6px 20px rgba(147, 51, 234, 0.25),
+    0 2px 8px rgba(147, 51, 234, 0.15),
     var(--tech-glow),
     var(--inner-shadow);
 }
