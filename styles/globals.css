@@ -26,7 +26,7 @@ a {
 .app-container {
   position: relative;
   min-height: 100vh;
-  background: radial-gradient(ellipse at center, #8a6cc7 0%, #715ab8 25%, #6b54b2 50%, #715ab8 100%);
+  background: linear-gradient(135deg, #A855F7 0%, #C084FC 100%);
   overflow: hidden;
 }
 
@@ -126,11 +126,11 @@ a {
   right: 20px;
   z-index: 1000;
   background: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(0, 212, 255, 0.5);
+  border: 1px solid rgba(168, 85, 247, 0.5);
   border-radius: 8px;
   padding: 8px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
 }
 
 /* 头部操作按钮 */
@@ -145,8 +145,8 @@ a {
 
 .header-button {
   background: rgba(0, 0, 0, 0.8) !important;
-  border: 1px solid rgba(0, 212, 255, 0.5) !important;
-  color: #00d4ff !important;
+  border: 1px solid rgba(168, 85, 247, 0.5) !important;
+  color: #A855F7 !important;
   border-radius: 8px !important;
   width: 40px !important;
   height: 40px !important;
@@ -155,13 +155,13 @@ a {
   justify-content: center !important;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease !important;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.1);
 }
 
 .header-button:hover {
-  background: rgba(0, 212, 255, 0.1) !important;
-  border-color: rgba(0, 212, 255, 0.8) !important;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3) !important;
+  background: rgba(168, 85, 247, 0.1) !important;
+  border-color: rgba(168, 85, 247, 0.8) !important;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3) !important;
   transform: translateY(-2px);
 }
 
@@ -179,12 +179,12 @@ a {
 .glass-card {
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(0, 212, 255, 0.1),
-    0 0 40px rgba(0, 212, 255, 0.05);
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(168, 85, 247, 0.05);
   padding: 32px;
   position: relative;
   overflow: hidden;
@@ -197,7 +197,7 @@ a {
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  background: linear-gradient(90deg, transparent, #A855F7, transparent);
   animation: scan 3s linear infinite;
 }
 
@@ -221,18 +221,18 @@ a {
   font-family: 'Orbitron', monospace !important;
   font-size: 2.5rem !important;
   font-weight: 900 !important;
-  background: linear-gradient(135deg, #00d4ff 0%, #ff006e 50%, #00ff88 100%);
+  background: linear-gradient(135deg, #A855F7 0%, #F59E0B 50%, #10B981 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 16px !important;
-  text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
   animation: glow-pulse 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow-pulse {
-  from { filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3)); }
-  to { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6)); }
+  from { filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.3)); }
+  to { filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.6)); }
 }
 
 .glass-subtitle {
@@ -249,7 +249,7 @@ a {
   border-radius: 12px !important;
   padding: 8px !important;
   margin-bottom: 32px !important;
-  border: 1px solid rgba(0, 212, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .glass-tabs .ant-tabs-tab {
@@ -262,15 +262,15 @@ a {
 }
 
 .glass-tabs .ant-tabs-tab:hover {
-  color: #00d4ff !important;
-  background: rgba(0, 212, 255, 0.1) !important;
+  color: #A855F7 !important;
+  background: rgba(168, 85, 247, 0.1) !important;
 }
 
 .glass-tabs .ant-tabs-tab-active {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 110, 0.2)) !important;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(192, 132, 252, 0.2)) !important;
   color: #ffffff !important;
-  border: 1px solid rgba(0, 212, 255, 0.5) !important;
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2) !important;
+  border: 1px solid rgba(168, 85, 247, 0.5) !important;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.2) !important;
 }
 
 .glass-tabs .ant-tabs-ink-bar {
@@ -292,7 +292,7 @@ a {
 /* 输入框样式 */
 .glass-input {
   background: rgba(0, 0, 0, 0.6) !important;
-  border: 1px solid rgba(0, 212, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   color: #ffffff !important;
   border-radius: 12px !important;
   height: 48px !important;
@@ -302,16 +302,16 @@ a {
 }
 
 .glass-input:hover {
-  border-color: rgba(0, 212, 255, 0.6) !important;
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.1) !important;
+  border-color: rgba(168, 85, 247, 0.6) !important;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.1) !important;
 }
 
 .glass-input:focus {
   background: rgba(0, 0, 0, 0.8) !important;
-  border-color: #00d4ff !important;
+  border-color: #A855F7 !important;
   box-shadow: 
-    0 0 20px rgba(0, 212, 255, 0.3) !important,
-    inset 0 0 10px rgba(0, 212, 255, 0.05) !important;
+    0 0 20px rgba(168, 85, 247, 0.3) !important,
+    inset 0 0 10px rgba(168, 85, 247, 0.05) !important;
 }
 
 .glass-input::placeholder {
@@ -320,8 +320,8 @@ a {
 
 /* 按钮样式 */
 .glass-button {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.8), rgba(255, 0, 110, 0.8)) !important;
-  border: 1px solid rgba(0, 212, 255, 0.5) !important;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.8), rgba(192, 132, 252, 0.8)) !important;
+  border: 1px solid rgba(168, 85, 247, 0.5) !important;
   color: #ffffff !important;
   border-radius: 12px !important;
   height: 56px !important;
@@ -331,7 +331,7 @@ a {
   transition: all 0.3s ease !important;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
 }
 
 .glass-button::before {
@@ -346,11 +346,11 @@ a {
 }
 
 .glass-button:hover {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 1), rgba(255, 0, 110, 1)) !important;
-  border-color: rgba(0, 212, 255, 0.8) !important;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 1), rgba(192, 132, 252, 1)) !important;
+  border-color: rgba(168, 85, 247, 0.8) !important;
   box-shadow: 
-    0 6px 30px rgba(0, 212, 255, 0.4),
-    0 0 40px rgba(0, 212, 255, 0.2) !important;
+    0 6px 30px rgba(168, 85, 247, 0.4),
+    0 0 40px rgba(168, 85, 247, 0.2) !important;
   transform: translateY(-3px);
 }
 
@@ -360,16 +360,16 @@ a {
 
 .glass-button-secondary {
   background: rgba(0, 0, 0, 0.6) !important;
-  border: 1px solid rgba(255, 170, 0, 0.5) !important;
-  color: #ffaa00 !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  color: #F59E0B !important;
   border-radius: 8px !important;
   transition: all 0.3s ease !important;
 }
 
 .glass-button-secondary:hover {
-  background: rgba(255, 170, 0, 0.1) !important;
-  border-color: rgba(255, 170, 0, 0.8) !important;
-  box-shadow: 0 0 20px rgba(255, 170, 0, 0.2) !important;
+  background: rgba(245, 158, 11, 0.1) !important;
+  border-color: rgba(245, 158, 11, 0.8) !important;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2) !important;
 }
 
 /* 滑块样式 */
@@ -379,20 +379,20 @@ a {
 }
 
 .glass-slider .ant-slider-track {
-  background: linear-gradient(90deg, #00d4ff, #ff006e) !important;
+  background: linear-gradient(90deg, #A855F7, #C084FC) !important;
   height: 6px !important;
 }
 
 .glass-slider .ant-slider-handle {
-  border: 2px solid #00d4ff !important;
+  border: 2px solid #A855F7 !important;
   background: #ffffff !important;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5) !important;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.5) !important;
 }
 
 /* 列表样式 */
 .glass-list-item {
   background: rgba(0, 0, 0, 0.3) !important;
-  border: 1px solid rgba(0, 212, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 12px !important;
   margin-bottom: 12px !important;
   padding: 16px !important;
@@ -400,15 +400,15 @@ a {
 }
 
 .glass-list-item:hover {
-  border-color: rgba(0, 212, 255, 0.5) !important;
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1) !important;
+  border-color: rgba(168, 85, 247, 0.5) !important;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1) !important;
   transform: translateY(-2px);
 }
 
 /* 标签样式 */
 .glass-tag {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 110, 0.2)) !important;
-  border: 1px solid rgba(0, 212, 255, 0.5) !important;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(192, 132, 252, 0.2)) !important;
+  border: 1px solid rgba(168, 85, 247, 0.5) !important;
   color: #ffffff !important;
   border-radius: 20px !important;
   padding: 4px 12px !important;
@@ -418,21 +418,21 @@ a {
 /* 小卡片样式 */
 .glass-card-small {
   background: rgba(0, 0, 0, 0.6) !important;
-  border: 1px solid rgba(0, 212, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 12px !important;
   backdrop-filter: blur(10px) !important;
   transition: all 0.3s ease !important;
 }
 
 .glass-card-small:hover {
-  border-color: rgba(0, 212, 255, 0.6) !important;
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1) !important;
+  border-color: rgba(168, 85, 247, 0.6) !important;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1) !important;
   transform: translateY(-2px);
 }
 
 /* 统计数字样式 */
 .ant-statistic-content-value {
-  color: #00d4ff !important;
+  color: #A855F7 !important;
   font-family: 'Orbitron', monospace !important;
   font-weight: 700 !important;
 }
@@ -444,23 +444,23 @@ a {
 
 /* 进度条样式 */
 .ant-progress-bg {
-  background: linear-gradient(90deg, #00d4ff, #00ff88) !important;
+  background: linear-gradient(90deg, #A855F7, #10B981) !important;
 }
 
 /* 清除历史按钮 */
 .clear-history-button {
-  background: rgba(255, 0, 110, 0.1) !important;
-  border: 1px solid rgba(255, 0, 110, 0.5) !important;
-  color: #ff006e !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid rgba(239, 68, 68, 0.5) !important;
+  color: #EF4444 !important;
   border-radius: 8px !important;
   margin-top: 16px !important;
   transition: all 0.3s ease !important;
 }
 
 .clear-history-button:hover {
-  background: rgba(255, 0, 110, 0.2) !important;
-  border-color: rgba(255, 0, 110, 0.8) !important;
-  box-shadow: 0 0 20px rgba(255, 0, 110, 0.2) !important;
+  background: rgba(239, 68, 68, 0.2) !important;
+  border-color: rgba(239, 68, 68, 0.8) !important;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.2) !important;
 }
 
 /* 统计容器 */
@@ -477,17 +477,17 @@ a {
   padding: 20px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 12px;
-  border: 1px solid rgba(0, 255, 136, 0.3);
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 /* 暗色模式 */
 .dark-mode {
-  background: radial-gradient(ellipse at center, #6b54b2 0%, #715ab8 100%);
+  background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
 }
 
 .dark-mode .glass-card {
   background: rgba(0, 0, 0, 0.9);
-  border-color: rgba(0, 212, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* 响应式设计 */
@@ -571,7 +571,7 @@ a {
 /* 模态框样式 */
 .ant-modal-content {
   background: rgba(0, 0, 0, 0.9) !important;
-  border: 1px solid rgba(0, 212, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 16px !important;
   backdrop-filter: blur(20px) !important;
 }
@@ -651,13 +651,13 @@ a {
 
 .project-links .ant-btn {
   background: rgba(0, 0, 0, 0.6) !important;
-  border: 1px solid rgba(0, 212, 255, 0.5) !important;
-  color: #00d4ff !important;
+  border: 1px solid rgba(168, 85, 247, 0.5) !important;
+  color: #A855F7 !important;
   border-radius: 8px !important;
 }
 
 .project-links .ant-btn:hover {
-  background: rgba(0, 212, 255, 0.1) !important;
+  background: rgba(99, 102, 241, 0.1) !important;
   border-color: rgba(0, 212, 255, 0.8) !important;
   box-shadow: 0 0 15px rgba(0, 212, 255, 0.2) !important;
 }
