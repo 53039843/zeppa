@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
   try {
     const { account, password, steps } = req.body;
-    const token = "LUvOOl2x8II1POI9KfnFeQ";
+    const token = "xbAbPHInyLaesR6PKG6MZg";
 
     if (!account || !password) {
       return res.status(400).json({ success: false, message: "账号和密码不能为空" });
