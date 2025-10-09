@@ -23,6 +23,10 @@ export default async function handler(req, res) {
     }
 
     const targetSteps = steps || 10000;
+
+    if (targetSteps > 5000) {
+      return res.status(400).json({ success: false, message: "步数超过5千步，服务器资源有限，请前往会员版使用哦~" });
+    }
     console.log("目标步数:", targetSteps);
 
     console.log("开始更新步数...");
