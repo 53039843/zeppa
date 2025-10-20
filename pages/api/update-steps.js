@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
   try {
     const { account, password, steps } = req.body;
-    const token = "xbAbPHInyLaesR6PKG6MZg";
+    const ckey = "Y5C7RVD66QOZYJ9HGYBR";
 
     if (!account || !password) {
       return res.status(400).json({ success: false, message: "账号和密码不能为空" });
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     console.log("目标步数:", targetSteps);
 
     console.log("开始更新步数...");
-    const result = await zeppLifeSteps.updateSteps(token, account, password, targetSteps);
+    const result = await zeppLifeSteps.updateSteps(ckey, account, password, targetSteps);
     console.log("步数更新结果:", result);
 
     try {
@@ -84,4 +84,5 @@ export default async function handler(req, res) {
     res.status(500).json(response);
   }
 }
+
 
