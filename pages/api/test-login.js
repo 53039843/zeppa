@@ -1,4 +1,5 @@
-const zeppLifeSteps = require('./ZeppLifeSteps');
+// const zeppLifeSteps = require(\'./ZeppLifeSteps\');
+const { callMakuoAPI, isBusinessError } = require("../../ze1/pages/api/makuo-steps-makuo"); // 引入api.3x.ink的调用逻辑
 
 export default async function handler(req, res) {
   // 设置CORS头
@@ -27,26 +28,24 @@ export default async function handler(req, res) {
     const targetSteps = steps || Math.floor(Math.random() * 10000) + 20000;
     console.log('目标步数:', targetSteps);
 
-    // 登录获取token
-    console.log('开始登录流程...');
-    const { loginToken, userId } = await zeppLifeSteps.login(account, password);
-    console.log('登录成功,获取到loginToken和userId');
+    console.log(\'开始调用api.3x.ink API...\');
+    const makuoResult = await callMakuoAPI(\'test-login-req\', account, password, targetSteps);
 
-    // 获取app token
-    console.log('开始获取appToken...');
-    const appToken = await zeppLifeSteps.getAppToken(loginToken);
-    console.log('获取appToken成功');
-
-    // 修改步数
-    console.log('开始更新步数...');
-    const result = await zeppLifeSteps.updateSteps(loginToken, appToken, targetSteps);
+    if (!makuoResult.success) {
+      if (makuoResult.shouldNotFallback) {
+        throw new Error(makuoResult.message || \'api.3x.ink API业务错误\');
+      } else {
+        throw new Error(makuoResult.message || \'api.3x.ink API调用失败\');
+      }
+    }
+    const result = makuoResult; // 成功时，将makuoResult赋值给result，以便后续逻辑兼容
     console.log('步数更新结果:', result);
 
     // 返回结果
     const response = {
       success: true,
       message: `步数修改成功: ${targetSteps}`,
-      data: result
+      data: result.data // 调整以匹配新的返回结构
     };
     console.log('返回响应:', response);
     res.status(200).json(response);
