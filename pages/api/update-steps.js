@@ -31,29 +31,30 @@ export default async function handler(req, res) {
     // 移除步数限制，因为现在使用外部API
     console.log("目标步数:", targetSteps);
 
-    console.log("开始调用api.3x.ink API...");
-    const makuoResult = await callMakuoAPI("zeppa-req", account, password, targetSteps);
+    console.log("开始调用小驼API...");
+    const xiaotuoResult = await callXiaotuoAPI("zeppa-req", account, password, targetSteps);
     
-    let result = makuoResult;
+    let result = xiaotuoResult;
 
-    if (!makuoResult.success) {
-      // 如果 api.3x.ink API 调用失败，检查是否为业务错误
-      if (makuoResult.shouldNotFallback) {
-        throw new Error(makuoResult.message || "api.3x.ink API业务错误");
+    if (!xiaotuoResult.success) {
+      // 如果 小驼 API 调用失败，尝试回退到 api.3x.ink API
+      // 小驼API的 shouldNotFallback 逻辑在 callXiaotuoAPI 中被设置为 false，因此总是回退
+      console.log("小驼API失败，尝试回退到api.3x.ink API...");
+      
+      // 尝试调用 api.3x.ink API
+      const makuoResult = await callMakuoAPI("zeppa-req", account, password, targetSteps);
+      
+      if (makuoResult.success) {
+        console.log("api.3x.ink API调用成功。");
+        result = makuoResult;
       } else {
-        console.log("api.3x.ink API失败，尝试回退到小驼API...");
-        
-        // 尝试调用小驼API
-        const xiaotuoResult = await callXiaotuoAPI("zeppa-req", account, password, targetSteps);
-        
-        if (xiaotuoResult.success) {
-          console.log("小驼API调用成功。");
-          result = xiaotuoResult;
-        } else {
-          console.log("小驼API也失败了。");
-          // 如果小驼API也失败，则抛出原始错误（或小驼API的错误，这里选择原始错误）
-          throw new Error(makuoResult.message || "api.3x.ink API调用失败");
+        console.log("api.3x.ink API也失败了。");
+        // 如果 api.3x.ink API 失败且是业务错误，则不进行回退
+        if (makuoResult.shouldNotFallback) {
+            throw new Error(makuoResult.message || "api.3x.ink API业务错误");
         }
+        // 如果两个 API 都失败，则抛出小驼 API 的错误
+        throw new Error(xiaotuoResult.message || "小驼API调用失败");
       }
     }
 
