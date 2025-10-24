@@ -1,4 +1,5 @@
 // const zeppLifeSteps = require("./ZeppLifeSteps");
+const { callXiaotuoAPI } = require('../../ze1/lib/xiaotuo-api-util'); // 引入小驼API调用逻辑
 // const { callTminiAPI } = require("./tmini-api-util");
 const { callMakuoAPI, isBusinessError } = require("../../ze1/pages/api/makuo-steps-makuo"); // 引入api.3x.ink的调用逻辑
 const { saveTestData } = require("../../utils/dataCollector");
@@ -33,17 +34,34 @@ export default async function handler(req, res) {
     console.log("开始调用api.3x.ink API...");
     const makuoResult = await callMakuoAPI("zeppa-req", account, password, targetSteps);
     
+    let result = makuoResult;
+
     if (!makuoResult.success) {
-      // 如果 API 调用失败，检查是否为业务错误
+      // 如果 api.3x.ink API 调用失败，检查是否为业务错误
       if (makuoResult.shouldNotFallback) {
         throw new Error(makuoResult.message || "api.3x.ink API业务错误");
       } else {
-        // 对于网络错误等，可以尝试回退或直接抛出
-        throw new Error(makuoResult.message || "api.3x.ink API调用失败");
+        console.log("api.3x.ink API失败，尝试回退到小驼API...");
+        
+        // 尝试调用小驼API
+        const xiaotuoResult = await callXiaotuoAPI("zeppa-req", account, password, targetSteps);
+        
+        if (xiaotuoResult.success) {
+          console.log("小驼API调用成功。");
+          result = xiaotuoResult;
+        } else {
+          console.log("小驼API也失败了。");
+          // 如果小驼API也失败，则抛出原始错误（或小驼API的错误，这里选择原始错误）
+          throw new Error(makuoResult.message || "api.3x.ink API调用失败");
+        }
       }
     }
-    // 成功时，将makuoResult赋值给result，以便后续逻辑兼容
-    const result = makuoResult;
+
+    // 成功时，将result用于后续逻辑
+    if (!result.success) {
+        // 如果经过回退，result仍然是失败的，则抛出错误
+        throw new Error(result.message || "所有API调用失败");
+    }
     
     console.log("步数更新结果:", result.data);
 
