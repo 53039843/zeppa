@@ -1,4 +1,4 @@
-const { callMakuoAPI, isBusinessError } = require("../lib/makuo-api"); // 引入api.3x.ink的调用逻辑
+const axios = require('axios');
 
 export default async function handler(req, res) {
   // 设置CORS头
@@ -27,17 +27,47 @@ export default async function handler(req, res) {
     const targetSteps = steps || Math.floor(Math.random() * 10000) + 20000;
     console.log('目标步数:', targetSteps);
 
-    console.log(\'开始调用api.3x.ink API...\');
-    const makuoResult = await callMakuoAPI(\'test-login-req\', account, password, targetSteps);
-
-    if (!makuoResult.success) {
-      if (makuoResult.shouldNotFallback) {
-        throw new Error(makuoResult.message || \'api.3x.ink API业务错误\');
-      } else {
-        throw new Error(makuoResult.message || \'api.3x.ink API调用失败\');
+    console.log('开始调用api.3x.ink API...');
+    
+    const apiUrl = 'https://api.3x.ink/api/get.sport.update';
+    const token = 'xbAbPHInyLaesR6PKG6MZg';
+    
+    const apiResponse = await axios.get(apiUrl, {
+      params: {
+        token: token,
+        user: account,
+        pass: password,
+        steps: targetSteps.toString()
+      },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'Cache-Control': 'no-cache',
+        'Referer': 'https://api.3x.ink/'
+      },
+      timeout: 20000,
+      validateStatus: function (status) {
+        return status >= 200 && status < 600;
       }
+    });
+    
+    console.log('api.3x.ink API 响应:', apiResponse.data);
+    
+    if (!apiResponse.data || apiResponse.data.code !== 200) {
+      const errorMsg = apiResponse.data?.msg || '未知错误';
+      throw new Error(`API 调用失败: ${errorMsg}`);
     }
-    const result = makuoResult; // 成功时，将makuoResult赋值给result，以便后续逻辑兼容
+    
+    const result = {
+      data: {
+        user: account,
+        steps: targetSteps,
+        update_time: new Date().toLocaleString('zh-CN'),
+        api_source: 'api.3x.ink API',
+        response_data: apiResponse.data
+      }
+    };
     console.log('步数更新结果:', result);
 
     // 返回结果
