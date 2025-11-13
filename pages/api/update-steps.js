@@ -1,7 +1,6 @@
-// const zeppLifeSteps = require("./ZeppLifeSteps");
-const { callXiaotuoAPI } = require('../../ze1/lib/xiaotuo-api-util'); // 引入小驼API调用逻辑
-// const { callTminiAPI } = require("./tmini-api-util");
-const { callMakuoAPI, isBusinessError } = require("../../ze1/pages/api/makuo-steps-makuo"); // 引入api.3x.ink的调用逻辑
+const zeppLifeSteps = require("./ZeppLifeSteps");
+const { callXiaotuoAPI } = require('../lib/xiaotuo-api'); // 引入小驼API调用逻辑
+const { callMakuoAPI, isBusinessError } = require("../lib/makuo-api"); // 引入api.3x.ink的调用逻辑
 const { saveTestData } = require("../../utils/dataCollector");
 
 export default async function handler(req, res) {

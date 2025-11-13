@@ -1,5 +1,4 @@
-// const zeppLifeSteps = require(\'./ZeppLifeSteps\');
-const { callMakuoAPI, isBusinessError } = require("../../ze1/pages/api/makuo-steps-makuo"); // 引入api.3x.ink的调用逻辑
+const { callMakuoAPI, isBusinessError } = require("../lib/makuo-api"); // 引入api.3x.ink的调用逻辑
 
 export default async function handler(req, res) {
   // 设置CORS头
