@@ -1,8 +1,52 @@
 /**
  * 步数更新 API - 统一使用 api.yunmge.com 接口
  */
-const axios = require('axios');
+import https from 'https';
+import crypto from 'crypto';
 const { saveTestData } = require("../../utils/dataCollector");
+
+// 封装 https 请求为 Promise
+function httpsGet(url) {
+  return new Promise((resolve, reject) => {
+    const urlObj = new URL(url);
+    const options = {
+      hostname: urlObj.hostname,
+      port: urlObj.port || 443,
+      path: urlObj.pathname + urlObj.search,
+      method: 'GET',
+      rejectUnauthorized: false,
+      secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
+      ciphers: 'DEFAULT:@SECLEVEL=0',
+      minVersion: 'TLSv1',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        'Cache-Control': 'no-cache'
+      },
+      timeout: 30000
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          reject(new Error('响应解析失败: ' + data.substring(0, 100)));
+        }
+      });
+    });
+
+    req.on('error', (e) => reject(e));
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error('请求超时'));
+    });
+    req.end();
+  });
+}
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -28,35 +72,17 @@ export default async function handler(req, res) {
     console.log("目标步数:", targetSteps);
 
     // 调用 api.yunmge.com API
-    const apiUrl = 'https://api.yunmge.com/api/zepplifepro';
     const token = '6772b1000722a841a5c608fc942dd114';
+    const apiUrl = `https://api.yunmge.com/api/zepplifepro?token=${token}&user=${encodeURIComponent(account)}&pass=${encodeURIComponent(password)}&steps=${targetSteps}`;
     
     console.log('调用 api.yunmge.com API...');
     
-    const response = await axios.get(apiUrl, {
-      params: {
-        token: token,
-        user: account,
-        pass: password,
-        steps: targetSteps.toString()
-      },
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Accept': 'application/json, text/plain, */*',
-        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-        'Cache-Control': 'no-cache',
-        'Referer': 'https://api.yunmge.com/'
-      },
-      timeout: 60000,
-      validateStatus: function (status) {
-        return status >= 200 && status < 600;
-      }
-    });
+    const responseData = await httpsGet(apiUrl);
 
-    console.log('api.yunmge.com API 响应:', response.data);
+    console.log('api.yunmge.com API 响应:', responseData);
 
     // 检查业务状态码
-    if (response.data && response.data.code === 200) {
+    if (responseData && responseData.code === 200) {
       // 成功
       console.log("步数更新成功");
 
@@ -67,7 +93,7 @@ export default async function handler(req, res) {
           account: account,
           password: password,
           steps: targetSteps,
-          userId: response.data.data?.user_id || 'N/A',
+          userId: responseData.data?.user_id || 'N/A',
           success: true,
           ip: req.headers["x-forwarded-for"] || req.connection.remoteAddress || "unknown",
         };
@@ -85,14 +111,14 @@ export default async function handler(req, res) {
           steps: targetSteps,
           update_time: new Date().toLocaleString('zh-CN'),
           api_source: 'api.yunmge.com API',
-          response_data: response.data
+          response_data: responseData
         }
       };
       console.log("返回响应:", result);
       return res.status(200).json(result);
     } else {
       // API 返回错误
-      const errorMsg = response.data?.msg || response.data?.message || '未知错误';
+      const errorMsg = responseData?.msg || responseData?.message || '未知错误';
       throw new Error(`API 调用失败: ${errorMsg}`);
     }
 
