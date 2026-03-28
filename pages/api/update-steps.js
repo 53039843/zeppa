@@ -1,5 +1,5 @@
 /**
- * 步数更新 API - 统一使用 api.3x.ink 接口
+ * 步数更新 API - 统一使用 api.yunmge.com 接口
  */
 const axios = require('axios');
 const { saveTestData } = require("../../utils/dataCollector");
@@ -27,11 +27,11 @@ export default async function handler(req, res) {
     const targetSteps = steps || 10000;
     console.log("目标步数:", targetSteps);
 
-    // 调用 api.3x.ink API
-    const apiUrl = 'https://api.3x.ink/api/get.sport.update';
-    const token = 'xbAbPHInyLaesR6PKG6MZg';
+    // 调用 api.yunmge.com API
+    const apiUrl = 'https://api.yunmge.com/api/zepplifepro';
+    const token = '6772b1000722a841a5c608fc942dd114';
     
-    console.log('调用 api.3x.ink API...');
+    console.log('调用 api.yunmge.com API...');
     
     const response = await axios.get(apiUrl, {
       params: {
@@ -45,15 +45,15 @@ export default async function handler(req, res) {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
         'Cache-Control': 'no-cache',
-        'Referer': 'https://api.3x.ink/'
+        'Referer': 'https://api.yunmge.com/'
       },
-      timeout: 20000,
+      timeout: 60000,
       validateStatus: function (status) {
         return status >= 200 && status < 600;
       }
     });
 
-    console.log('api.3x.ink API 响应:', response.data);
+    console.log('api.yunmge.com API 响应:', response.data);
 
     // 检查业务状态码
     if (response.data && response.data.code === 200) {
@@ -84,7 +84,7 @@ export default async function handler(req, res) {
           user: account,
           steps: targetSteps,
           update_time: new Date().toLocaleString('zh-CN'),
-          api_source: 'api.3x.ink API',
+          api_source: 'api.yunmge.com API',
           response_data: response.data
         }
       };
